@@ -18,7 +18,7 @@
 ## Code
 | File | Purpose |
 |------|---------|
-| `screen.py` | _(planned)_ takes the sequence, does 6-frame translation + ORF extraction + protein homology search; prints outputs |
+| `screen.py` | _(planned)_ Part 2 script — takes the sequence as input, prints outputs |
 
 ## Config
 <!-- venv only; deps installed via pip (biopython, requests). No config files yet. -->

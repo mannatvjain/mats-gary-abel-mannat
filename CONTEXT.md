@@ -18,36 +18,10 @@ it as a potential biosecurity concern. The full prompt lives in `ASSESSMENT.md`.
   what can (or cannot) be concluded. A quick demo — depth over completeness, but
   it must actually return a result. No credentials in the answer.
 
-## How it's evaluated (inferred)
-- Flagging is **asymmetric**: false positives are explicitly called costly, so a
-  flag needs sufficient confidence; a defensible no-flag with reasoning is valid.
-- Reasoning quality matters as much as the result — why each step, what it tells
-  you, and honest handling of uncertainty.
-
-## The investigation, in shape (not yet executed)
-1. **Translate, 6 frames + find ORFs** — a clean long ORF in one frame says it's
-   a protein-coding sequence and gives the amino-acid sequence to search.
-2. **Search at the protein level** (BLASTp / profile search) — the internal tool
-   missed it at the DNA level; codon-reoptimized or AT-rich rewrites evade
-   nucleotide identity while the protein stays conserved. Protein homology
-   recovers candidate **function** and **source organism**.
-3. **Interpret hits** — identity, query coverage, e-value, and crucially *what*
-   the top hit is and *what organism* it's from → drives the risk judgment.
-4. **Decide** — flag only with sufficient confidence of biosecurity risk;
-   otherwise document why it's benign / inconclusive.
-
-## Domain vocabulary
-- **Synthesis screening** — checking ordered DNA against known hazards before
-  manufacture (cf. IGSC / SecureDNA-style screening).
-- **6-frame translation** — translating all three reading frames on both strands.
-- **ORF** — open reading frame; a start→stop stretch that may encode a protein.
-- **Homology search / BLAST** — finding similar known sequences; BLASTp = protein
-  vs protein, BLASTn = nucleotide vs nucleotide.
-- **Homology evasion / codon reoptimization** — rewriting codons (often toward a
-  skewed, e.g. AT-rich, usage) so DNA-level identity drops but the protein is
-  unchanged — a known way to slip past naive nucleotide screens.
-- **Select agent / sequence of concern** — the toxin/pathogen categories a flag
-  would escalate toward.
+## What the prompt states about evaluation
+- Flagging is **asymmetric**: the prompt says false positives are also costly, so
+  a sequence should only be flagged with sufficient confidence of a biosecurity
+  risk.
 
 ## Constraints
 - Publicly available tools/libraries only; **no access credentials** committed or

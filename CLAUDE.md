@@ -9,31 +9,13 @@ written investigation plan (Part 1) plus a small Python demo (Part 2). See
 `ASSESSMENT.md` for the full prompt.
 
 ## Stack
-- **Language**: Python 3
-- **Key dependencies**: Biopython (`Bio.Seq` for translation/ORF work, `Bio.Blast.NCBIWWW`/`NCBIXML` for remote BLAST), `requests` for NCBI E-utilities if needed. No DB; the sequence is the input.
-- **Targets**: runs locally / in a notebook; uses **publicly available** tools only. No access credentials in any committed file or in the writeup.
+- **Language**: Python 3 (Part 2 asks for a Python script).
+- **Key dependencies**: TBD — publicly available tools/libraries only.
+- **Targets**: runs locally; no access credentials in any committed file or in the writeup.
 
 ## Architecture
-
-```
-  mystery DNA (ASSESSMENT.md)
-        │
-        ▼
-  6-frame translation        ── nucleotide-level screen missed it; the internal
-  + ORF extraction              tool likely keys on DNA identity, so a codon-
-        │                       reoptimized / AT-rich rewrite can evade it.
-        ▼                       Translating to protein recovers conserved signal.
-  protein homology search    ── BLASTp (or hmm/profile) against public protein
-  (remote BLAST / DBs)          DBs → candidate function + source organism.
-        │
-        ▼
-  interpret hits  ──►  flag / no-flag decision
-  (identity, coverage, e-value, what the top hit IS, organism risk)
-```
-
-Key hypothesis to test, not assume: a DNA-level miss + visibly AT-rich/skewed
-codon usage is the classic *homology-evasion-by-recoding* pattern — confirm or
-refute it by searching at the **protein** level.
+<!-- TODO: fill in once the investigation approach is decided (that's Part 1). -->
+Input is the single mystery DNA sequence in `ASSESSMENT.md`.
 
 ## Conventions
 - **No LaTeX in chat.** Use Unicode (ρ, σ, ·, ², ∑) or ASCII code blocks instead.
@@ -43,14 +25,7 @@ refute it by searching at the **protein** level.
 - **Minimal & fast.** Few moving parts; pick a couple of steps and get them returning real results rather than building the whole pipeline.
 
 ## Dev commands
-```bash
-# setup
-python3 -m venv .venv && .venv/bin/pip install biopython requests
-
-# run the screening demo on the assessment sequence
-.venv/bin/python screen.py            # (script TBD — see PLAN.md)
-```
-<!-- update once screen.py and any helpers exist -->
+<!-- TODO: fill in setup / run commands once the Part 2 script exists. -->
 
 ---
 

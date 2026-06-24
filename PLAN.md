@@ -1,21 +1,13 @@
 # Plan
 
 ## Now
-- [ ] **Part 2 demo — translation + ORF** (`screen.py`): take the sequence as
-      input, do 6-frame translation, extract the longest ORF, print the protein.
-- [ ] **Part 2 demo — protein homology**: run the ORF protein through a public
-      search (BLASTp via `Bio.Blast.NCBIWWW`, or a documented alternative);
-      capture top hits (identity, coverage, e-value, hit description + organism).
-- [ ] **Record real outputs** from the mystery sequence into the writeup.
-- [ ] **Part 1 writeup** (`WRITEUP.md`): ~100–200 word step-by-step approach.
-- [ ] **Flag / no-flag decision** with reasoning, given the asymmetry.
+- [ ] **Part 1** (`WRITEUP.md`): ~100–200 word sketch of the investigation
+      approach — Mannat decides the steps.
+- [ ] **Part 2**: short Python script implementing one or a few of those steps;
+      capture the real outputs from the mystery sequence and the conclusion.
 
 ## Next
-- [ ] Sanity checks: confirm the long ORF / frame; note codon-usage skew (AT-rich)
-      as the evasion signal that motivates searching at the protein level.
-- [ ] Document any tool gotchas (NCBI rate limits, BLAST submission quirks) in a
-      `*_REFERENCE.md` and add it to `INDEX.md`.
-- [ ] Final pass: ensure no credentials anywhere; outputs reproducible.
+- [ ] Final pass: no credentials anywhere; outputs reproducible.
 
 ## Done
 - [x] Scaffold project from the new-agent schema (docs skeleton + agent protocol), git repo local + remote

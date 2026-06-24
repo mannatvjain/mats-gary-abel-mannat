@@ -1,15 +1,13 @@
 # Log
 
 ## 2026-06-24 — Docs tailored to the assessment
-- Now that `ASSESSMENT.md` is in: filled in the project-specific content the
-  scaffold left as TODO. `CLAUDE.md` (description, Python/Biopython stack,
-  pipeline diagram, conventions incl. no-credentials + flag-asymmetry),
-  `CONTEXT.md` (deliverable, eval criteria, investigation shape, domain vocab),
-  `PLAN.md` (Part 1 writeup + Part 2 demo tasks), `INDEX.md` (planned `screen.py`
-  + `WRITEUP.md`).
-- Nothing executed yet — no translation/BLAST run, no real outputs.
-- **Next session:** write `screen.py` (6-frame translate → longest ORF → protein),
-  then add a protein homology search; record real outputs; draft `WRITEUP.md`.
+- Filled the scaffold's project-specific TODOs from the prompt only — the
+  scenario, deliverable (Part 1 / Part 2), the stated flag-asymmetry, the
+  no-credentials constraint, and who's who. Stack left as Python + TBD.
+- No investigation approach is recorded here on purpose: designing the steps is
+  Part 1, Mannat's to write. (Removed an earlier draft where I'd injected a
+  proposed approach/hypothesis — not mine to decide.)
+- **Next:** Mannat writes the Part 1 approach; then build the Part 2 script.
 
 ## 2026-06-24 — Project scaffolded
 - Created `mats-gary-abel-mannat` from the new-agent schema: `CLAUDE.md` (with the reusable Agent Protocol), `INDEX.md`, `CONTEXT.md`, `PLAN.md`, `LOG.md`, `.gitignore`.
