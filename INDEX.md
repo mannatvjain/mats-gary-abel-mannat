@@ -10,8 +10,15 @@
 | `LOG.md` | Reverse-chronological session changelog |
 | `ASSESSMENT.md` | The assessment prompt (scenario + Part 1 / Part 2) |
 
+## Deliverables
+| File | Purpose |
+|------|---------|
+| `WRITEUP.md` | _(planned)_ Part 1 investigation sketch + Part 2 results/conclusion |
+
 ## Code
-<!-- TODO: add rows as source files are created -->
+| File | Purpose |
+|------|---------|
+| `screen.py` | _(planned)_ takes the sequence, does 6-frame translation + ORF extraction + protein homology search; prints outputs |
 
 ## Config
-<!-- TODO: add rows as config files are created -->
+<!-- venv only; deps installed via pip (biopython, requests). No config files yet. -->

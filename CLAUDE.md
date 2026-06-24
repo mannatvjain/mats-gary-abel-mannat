@@ -1,23 +1,56 @@
 # mats-gary-abel-mannat
 
-MATS assessment project for Mannat (with Gary Abel). <!-- TODO: one-line description of what this assessment builds/investigates -->
+MATS assessment (mentor: Gary Abel). Play a DNA-synthesis-company biosecurity
+officer: investigate a "mystery" DNA order that the internal screening tool
+returned **no close matches** for, determine what it codes for, and decide
+whether to flag it as a biosecurity concern — accepting that **false positives
+are costly**, so a flag requires sufficient confidence. Deliverable is a short
+written investigation plan (Part 1) plus a small Python demo (Part 2). See
+`ASSESSMENT.md` for the full prompt.
 
 ## Stack
-<!-- TODO: fill in once the assessment task is known -->
-- **Language**:
-- **Key dependencies**:
-- **Targets**:
+- **Language**: Python 3
+- **Key dependencies**: Biopython (`Bio.Seq` for translation/ORF work, `Bio.Blast.NCBIWWW`/`NCBIXML` for remote BLAST), `requests` for NCBI E-utilities if needed. No DB; the sequence is the input.
+- **Targets**: runs locally / in a notebook; uses **publicly available** tools only. No access credentials in any committed file or in the writeup.
 
 ## Architecture
-<!-- TODO: ASCII diagram of the components and data flow once they exist -->
+
+```
+  mystery DNA (ASSESSMENT.md)
+        │
+        ▼
+  6-frame translation        ── nucleotide-level screen missed it; the internal
+  + ORF extraction              tool likely keys on DNA identity, so a codon-
+        │                       reoptimized / AT-rich rewrite can evade it.
+        ▼                       Translating to protein recovers conserved signal.
+  protein homology search    ── BLASTp (or hmm/profile) against public protein
+  (remote BLAST / DBs)          DBs → candidate function + source organism.
+        │
+        ▼
+  interpret hits  ──►  flag / no-flag decision
+  (identity, coverage, e-value, what the top hit IS, organism risk)
+```
+
+Key hypothesis to test, not assume: a DNA-level miss + visibly AT-rich/skewed
+codon usage is the classic *homology-evasion-by-recoding* pattern — confirm or
+refute it by searching at the **protein** level.
 
 ## Conventions
-- **No LaTeX in chat.** Claude Code does not render LaTeX, so `$...$`, `\mathbf{}`, etc. show up as raw source. Use Unicode (ρ, σ, π, ·, ², ∑, ∫, ∂) or code blocks with ASCII math instead.
-- **Minimal & fast.** Minimize components; keep things dense and instant. Every part must earn its place.
-- **Local-first.** Don't add cloud calls or send data off-machine without asking.
+- **No LaTeX in chat.** Use Unicode (ρ, σ, ·, ², ∑) or ASCII code blocks instead.
+- **No credentials, ever.** Don't commit API keys / NCBI accounts; don't paste them in the writeup (explicit assessment requirement).
+- **Confidence over recall.** Flagging is asymmetric: only flag with sufficient evidence; document the reasoning either way.
+- **Reproducible demo.** The Part 2 script takes the sequence as input and prints its outputs; capture real outputs in the writeup.
+- **Minimal & fast.** Few moving parts; pick a couple of steps and get them returning real results rather than building the whole pipeline.
 
 ## Dev commands
-<!-- TODO: fill in setup / run / test commands once the stack exists -->
+```bash
+# setup
+python3 -m venv .venv && .venv/bin/pip install biopython requests
+
+# run the screening demo on the assessment sequence
+.venv/bin/python screen.py            # (script TBD — see PLAN.md)
+```
+<!-- update once screen.py and any helpers exist -->
 
 ---
 
