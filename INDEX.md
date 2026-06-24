@@ -8,6 +8,7 @@
 | `CONTEXT.md` | Problem domain, data flow, locked decisions |
 | `PLAN.md` | Task checklist with progress tracking |
 | `LOG.md` | Reverse-chronological session changelog |
+| `ASSESSMENT.md` | The assessment prompt (scenario + Part 1 / Part 2) |
 
 ## Code
 <!-- TODO: add rows as source files are created -->
